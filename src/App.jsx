@@ -7,7 +7,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="datatypes/" element={<Profile />} />
+        <Route path="/" element={<Profile />} />
 
         <Route path="datatypes/playground" element={<DatatypesPlayground />} />
       </Routes>
