@@ -9,7 +9,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Profile />} />
 
-        <Route path="datatypes/playground" element={<DatatypesPlayground />} />
+        <Route path="/datatypes/playground" element={<DatatypesPlayground />} />
       </Routes>
     </Router>
   );
