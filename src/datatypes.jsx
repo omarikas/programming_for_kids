@@ -3,8 +3,8 @@ import './App.css'
 import  string from "/src/assets/string.png"
 
 import  int from "/src/assets/int.png"
-import  boolean from "/src/assets/string.png"
-import  array from "/src/assets/string.png"
+import  boolean from "/src/assets/boolean.png"
+import  array from "/src/assets/array.png"
 function App() {
     const datatypes = ["string", "int", "boolean", "array"]
 
