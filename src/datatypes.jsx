@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import "./assets/string.png"
-import string from "./assets/string.png"
+import string from "/src/assets/string.png"
 function App() {
     const datatypes = ["string", "int", "boolean", "array"]
     const [current, setcurr] = useState(datatypes[0])
