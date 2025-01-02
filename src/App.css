@@ -1,0 +1,36 @@
+img {
+  width: 50vw;
+  position: absolute;
+  height: 50vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+button{
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+  
+}h1{color: white ;
+z-index: 10;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+}
+h2{
+  z-index: 10;
+color: white;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -0%);
+}
+input{
+
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+}
