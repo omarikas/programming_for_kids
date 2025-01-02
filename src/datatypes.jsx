@@ -5,9 +5,11 @@ import  string from "/src/assets/string.png"
 import  int from "/src/assets/int.png"
 import  boolean from "/src/assets/boolean.png"
 import  array from "/src/assets/array.png"
+
+import { useNavigate } from "react-router-dom";
 function App() {
     const datatypes = ["string", "int", "boolean", "array"]
-
+const navigate=useNavigate()
     const images = [string, int, boolean, array]
     const [current, setcurr] = useState(datatypes[0])
     const [played, setplayed] = useState(false)
@@ -47,6 +49,9 @@ cont=false
        }
        if(cont){
         setcurr(datatypes[datatypes.indexOf(current)+1])
+        if(current==="array"){
+        navigate("/datatypes/playground")
+        }
        }
 
 settext("")
