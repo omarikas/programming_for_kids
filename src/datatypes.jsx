@@ -1,8 +1,14 @@
 import { useState } from 'react'
 import './App.css'
-import"/src/assets/string.png"
+import  string from "/src/assets/string.png"
+
+import  int from "/src/assets/int.png"
+import  boolean from "/src/assets/string.png"
+import  array from "/src/assets/string.png"
 function App() {
     const datatypes = ["string", "int", "boolean", "array"]
+
+    const images = [string, int, boolean, array]
     const [current, setcurr] = useState(datatypes[0])
     const [played, setplayed] = useState(false)
     const [text,settext]=useState("")
@@ -52,7 +58,7 @@ cont=false
             <div>
                 <h1>{current}</h1>
                 <h2>{prompts[datatypes.indexOf(current)]}</h2>
-                <img src={`/src/assets/${current}.png`} />
+                <img src={images[datatypes.indexOf(current)]} />
                 <form onSubmit={(e) => {
                     e.preventDefault()
                     handlesubmit()
