@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './App.css'
-import string from "/src/assets/string.png"
+import"/src/assets/string.png"
 function App() {
     const datatypes = ["string", "int", "boolean", "array"]
     const [current, setcurr] = useState(datatypes[0])
@@ -52,7 +52,7 @@ cont=false
             <div>
                 <h1>{current}</h1>
                 <h2>{prompts[datatypes.indexOf(current)]}</h2>
-                <img src={string} />
+                <img src={`/src/assets/${current}.png`} />
                 <form onSubmit={(e) => {
                     e.preventDefault()
                     handlesubmit()
