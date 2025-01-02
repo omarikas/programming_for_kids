@@ -49,7 +49,7 @@ cont=false
         setcurr(datatypes[datatypes.indexOf(current)+1])
        }
 
-
+settext("")
 
     }
 
@@ -64,7 +64,7 @@ cont=false
                     handlesubmit()
                 }} >
                     <button type='submit' >ادخل</button>
-                    <input type='text' onChange={(e)=>settext(e.target.value)} required ></input>
+                    <input type='text' value={text} onChange={(e)=>settext(e.target.value)} required ></input>
                 </form>
             </div>
         </>
