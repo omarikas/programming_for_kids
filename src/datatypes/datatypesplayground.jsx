@@ -16,6 +16,8 @@ const DragAndDropCategories = () => {
     { id: 3, type: "int", label: "112" },
     { id: 4, type: "boolean", label: "لا" },
   ]);
+  const [id,setid]=useState(5)
+  const [text,settext]=useState("")
 
   const handleDragStart = (item) => {
     setDraggedItem(item);
@@ -24,13 +26,31 @@ const DragAndDropCategories = () => {
   const handleDragOver = (e) => {
     e.preventDefault(); // Allow drop
   };
+function additem(){
+var type=""
+if(text.includes(",")){
+  type="array"
+}else if (!isNaN(Number(text))){
 
+type="int"
+}else if(text==="نعم"||text==="لا"){
+  type="boolean"
+}else{
+  type="string"
+}
+
+const item={id,type,label:text}
+settext(" ")
+setid(id+1)
+setitem([item,...items])
+}
   const handleDrop = (category) => {
     if (draggedItem.type === category) {
       setCategories((prevCategories) => ({
         ...prevCategories,
         [category]: [...prevCategories[category], draggedItem],
       }));
+      console.log(draggedItem)
       setitem(items.filter((it)=>(it!=draggedItem)))
     }else{
         alert("نوع خطا")
@@ -39,10 +59,10 @@ const DragAndDropCategories = () => {
   };
 
   return (
-    <div style={{ display: "flex", gap: "20px" }}>
+    <div  id="datatypes" style={{ display: "flex",gap:"20px" }}>
       <h1>Drag and drop</h1>
       <div>
-        <h3>Items</h3>
+        <p>Items</p>
         <ul>
           {items.map((item) => (
             <li
@@ -56,6 +76,11 @@ const DragAndDropCategories = () => {
                 borderRadius: "4px",
                 cursor: "move",
                 backgroundColor: "#black",
+                width:"5vw", 
+                wordWrap: "break-word", /* Allows words to break if necessary */
+                whiteSppace: "normal", /* Allows text to wrap to the next line */
+                overflow: "hidden" /* Optional: Ensures no overflow */
+               
               }}
             >
               {item.label}
@@ -77,6 +102,7 @@ const DragAndDropCategories = () => {
             borderRadius: "4px",
             minHeight: "150px",
             backgroundColor: "#black",
+            width:"15vw"
           }}
         >
           <h4>{category.toUpperCase()}</h4>
@@ -89,6 +115,14 @@ const DragAndDropCategories = () => {
           </ul>
         </div>
       ))}
+      <h3>او جرب بنفسك</h3>
+      <form  onSubmit={(e)=>{
+        e.preventDefault()
+        additem()
+      }}> 
+      <input required value={text} onChange={(e)=>{settext(e.target.value)}} ></input>
+
+      </form>
     </div>
   );
 };

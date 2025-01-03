@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './App.css'
+import '..//App.css'
 import  string from "/src/assets/string.png"
 
 import  int from "/src/assets/int.png"
@@ -60,7 +60,7 @@ settext("")
 
     return (
         <>
-            <div>
+            <div id="datatypes">
                 <h1>{current}</h1>
                 <h2>{prompts[datatypes.indexOf(current)]}</h2>
                 <img src={images[datatypes.indexOf(current)]} />
