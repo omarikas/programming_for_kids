@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const DragAndDropCategories = () => {
+const DragAndDropCategories = ({language}) => {
   const [categories, setCategories] = useState({
     array: [],
     string: [],
@@ -10,12 +10,19 @@ const DragAndDropCategories = () => {
 
   const [draggedItem, setDraggedItem] = useState(null);
 
-  const [items ,setitem]= useState([
-    { id: 1, type: "array", label: "1,2,3,4" },
-    { id: 2, type: "string", label: "ahmed" },
-    { id: 3, type: "int", label: "112" },
-    { id: 4, type: "boolean", label: "لا" },
-  ]);
+  const [items ,setitem]= useState(
+    language === 'ar' ? [
+      { id: 1, type: "array", label: "١،٢،٣،٤" },
+      { id: 2, type: "string", label: "احمد" },
+      { id: 3, type: "int", label: "١١٢" },
+      { id: 4, type: "boolean", label: "لا" },
+    ] : [
+      { id: 1, type: "array", label: "1,2,3,4" },
+      { id: 2, type: "string", label: "ahmed" },
+      { id: 3, type: "int", label: "112" },
+      { id: 4, type: "boolean", label: "false" },
+    ]
+  );
   const [id,setid]=useState(5)
   const [text,settext]=useState("")
 

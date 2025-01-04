@@ -1,7 +1,24 @@
 import React, { useState } from "react";
 
-const CircleGrid2 = () => {
+const CircleGrid2 = ({language}) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const translations = {
+    en: {
+      title: "Interactive Grid Movement",
+      example: "Another example: move(int, int, string)",
+      red: "red",
+      blue: "blue"
+    },
+    ar: {
+      title: "حركة الشبكة التفاعلية",
+      example: "مثال اخر: move(int, int, string)",
+      red: "أحمر",
+      blue: "أزرق"
+    }
+  };
+
+  // Get current language texts
+  const t = translations[language] || translations.en;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -25,10 +42,10 @@ const CircleGrid2 = () => {
   };
 
   return (
-    <div style={{ position:"absolute",transform:"translateX(-50%)",left:"50%",top:0,fontFamily: "Arial, sans-serif" }}>
-      <h2>Interactive Grid Movement</h2>
+    <div style={{ position:"absolute",transform:"translateX(-50%)",left:"50%",top:"100px",fontFamily: "Arial, sans-serif" }}>
+      <h2>{t.title}</h2>
       <div style={{ marginBottom: "15px", fontSize: "16px" }}>
-        مثال اخر: move(int, int, string)
+    {t.example}
       </div>
       <div
         style={{
@@ -74,10 +91,10 @@ const CircleGrid2 = () => {
           }}
         >
           <option key="red" value="red">
-            red
+         {t.red}
           </option>
           <option key="blue" value="blue">
-            blue
+          {t.blue}
           </option>
         </select>
         <span>)</span>
