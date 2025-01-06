@@ -16,12 +16,14 @@ const Home = ({language}) => {
         en: {
             dataTypes: "Data Types",
             variables: "Variables",
-            functions: "Functions"
+            functions: "Functions",
+            operators:"operators"
         },
         ar: {
             dataTypes: "أنواع البيانات",
             variables: "المتغيرات",
-            functions: "الدوال"
+            functions: "الدوال",
+            operators:"المقارانات"
         }
     };
 
@@ -34,6 +36,9 @@ const Home = ({language}) => {
             </button>
             <button onClick={() => navigateToFunctions("variables")}  style={{ marginBottom: '10px' }}>
                 {text.variables}
+            </button>
+            <button onClick={() => navigateToFunctions("operators")} style={{ marginBottom: '10px' }}>
+                {text.operators}
             </button>
             <button onClick={() => navigateToFunctions("functions")} style={{ marginBottom: '10px' }}>
                 {text.functions}

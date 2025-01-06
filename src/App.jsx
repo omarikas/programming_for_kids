@@ -6,6 +6,11 @@ import CircleGrid from './functions/functions';
 import CircleGrid2 from './functions/functions2';
 import Home from './index.jsx';
 import TreasureApp from './variables/variables.jsx';
+import ComparisonGame from './operators/operators.jsx';
+import ComparisonGame2 from './operators/operators2.jsx';
+import ComparisonGame3 from './operators/operators3.jsx';
+import ComparisonGame4 from './operators/operators4.jsx';
+import ScratchClone from './playground/playgorund.jsx';
 
 const translations = {
   en: {
@@ -43,8 +48,14 @@ const App = () => {
         <Route path="/datatypes" element={<Profile language={language} />} />
         <Route path="/datatypes/playground" element={<DatatypesPlayground language={language} />} />
         <Route path='/functions' element={<CircleGrid language={language} />} />
-        <Route path='/functions2' element={<CircleGrid2  language={language}/>} />
 
+        <Route path='/operators2' element={<ComparisonGame2  language={language}/>} />
+        <Route path='/operators3' element={<ComparisonGame3  language={language}/>} />
+        <Route path='/operators4' element={<ComparisonGame4  language={language}/>} />
+                <Route path='/functions2' element={<CircleGrid2  language={language}/>} />
+
+                <Route path='/playground' element={<ScratchClone  language={language}/>} />
+        <Route path='/operators' element={<ComparisonGame  language={language}/>} />
         <Route path='/variables' element={<TreasureApp  language={language}/>} />
       </Routes>
     </Router>
