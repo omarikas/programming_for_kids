@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const CircleGrid2 = ({language}) => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -165,7 +166,7 @@ const CircleGrid2 = ({language}) => {
           }}
         ></div>
       </div>
-    </div>
+   <Link to="/functions/playground"> next </Link> </div>
   );
 };
 

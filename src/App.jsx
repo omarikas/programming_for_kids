@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Profile from './datatypes/datatypes';
 import DatatypesPlayground from './datatypes/datatypesplayground';
@@ -11,7 +11,7 @@ import ComparisonGame2 from './operators/operators2.jsx';
 import ComparisonGame3 from './operators/operators3.jsx';
 import ComparisonGame4 from './operators/operators4.jsx';
 import ScratchClone from './playground/playgorund.jsx';
-
+import Ifplayground from "./playground/playgroundif.jsx"
 const translations = {
   en: {
     home: 'Home',
@@ -23,7 +23,6 @@ const translations = {
 
 const App = () => {
   const [language, setLanguage] = useState('en');
-
   const toggleLanguage = () => {
     setLanguage((prevLanguage) => (prevLanguage === 'en' ? 'ar' : 'en'));
   };
@@ -48,13 +47,13 @@ const App = () => {
         <Route path="/datatypes" element={<Profile language={language} />} />
         <Route path="/datatypes/playground" element={<DatatypesPlayground language={language} />} />
         <Route path='/functions' element={<CircleGrid language={language} />} />
-
+        <Route path='/Ifplayground' element={< Ifplayground language={language}/>} />
+ 
         <Route path='/operators2' element={<ComparisonGame2  language={language}/>} />
         <Route path='/operators3' element={<ComparisonGame3  language={language}/>} />
         <Route path='/operators4' element={<ComparisonGame4  language={language}/>} />
                 <Route path='/functions2' element={<CircleGrid2  language={language}/>} />
-
-                <Route path='/playground' element={<ScratchClone  language={language}/>} />
+<Route path='/functions/playground' element={<ScratchClone/>} />
         <Route path='/operators' element={<ComparisonGame  language={language}/>} />
         <Route path='/variables' element={<TreasureApp  language={language}/>} />
       </Routes>

@@ -3,16 +3,32 @@ import * as Blockly from 'blockly';
 import * as BlocklyJS from 'blockly/javascript';
 import { Link } from 'react-router-dom';
 
-const ScratchClone = () => {
+const Ifplayground= () => {
   const [styles, setStyles] = useState({
   });
   const workspaceRef = useRef(null);
+const [bgcolor,setbgcolor]=useState("black")
+    useEffect(()=>{
+        generateCode()
+  BlocklyJS.javascriptGenerator.forBlock['get_background_color'] = function (block) {
+ 
+return [`'${bgcolor}'`, BlocklyJS['javascriptGenerator'].ORDER_ATOMIC];
 
+  };
+    },[bgcolor])
   const workspaceSetup = () => {
     // Define custom blocks using JSON
     Blockly.defineBlocksWithJsonArray([
-      {
-        type: 'set_background_color',
+      
+  {
+        type: 'get_background_color',
+        message0: 'background color',
+        output: 'String',
+        colour: 160,
+        tooltip: 'Get the current background color.',
+        helpUrl: '',
+      },
+        {type: 'set_background_color',
         message0: 'set background color to %1',
         args0: [
           {
@@ -49,20 +65,38 @@ const ScratchClone = () => {
     BlocklyJS.javascriptGenerator.forBlock['set_background_color'] = function (block) {
       const color = BlocklyJS.javascriptGenerator.valueToCode(block, 'COLOR', BlocklyJS.javascriptGenerator.ORDER_ATOMIC) || "'#ffffff'";
       return `updateStyles({ backgroundColor: ${color} });\n`;
-    };
-  
+    }  
+ 
   BlocklyJS.javascriptGenerator.forBlock['set_font_color'] = function (block) {
       const size = BlocklyJS.javascriptGenerator.valueToCode(block, 'COLOR', BlocklyJS.javascriptGenerator.ORDER_ATOMIC) || '16';
       return `updateStyles({ color: ${size} });\n`;
     };
-  
-    // Define the toolbox with all blocks
+ const initialXml = `
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="controls_if" id="(bZ3+[LHn2(0]G9Nef-4" x="263" y="163">
+    <mutation else="1"></mutation>
+    <value name="IF0">
+      <block type="logic_compare" id="6kUX^+c2o^2E.3l(]Cp">
+        <field name="OP">EQ</field>
+        <value name="A">
+          <block type="get_background_color" id="l,@xkNPMI])aT|Q/x.Kp">
+            <field name="TEXT"></field>
+          </block>
+        </value>
+      </block>
+    </value>
+    <statement name="ELSE">
+    </statement>
+  </block>
+</xml>`    // Define the toolbox with all blocks
     const toolbox = {
       kind: 'flyoutToolbox',
       contents: [
         { kind: 'block', type: 'text' },
-        { kind: 'block', type: 'set_background_color' },
+        { kind: 'block', type: 'get_background_color' },
         { kind: 'block', type: 'set_font_color' },
+          {kind:"block",type:"controls_if"}
+
       ],
     };
   
@@ -71,7 +105,11 @@ const ScratchClone = () => {
       toolbox,
       trashcan: true,
     });
-  
+
+const parser = new DOMParser();
+const xmlDoc = parser.parseFromString(initialXml, "text/xml");
+
+Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDoc.documentElement,workspace);
     return workspace;
   };
   const updateStyles = (newStyles) => {
@@ -82,6 +120,7 @@ const ScratchClone = () => {
     if (workspaceRef.current) {
       const code = BlocklyJS.javascriptGenerator.workspaceToCode(workspaceRef.current);
         try {
+            console.log(code);
         const sandbox = { updateStyles };
         const safeFunction = new Function('updateStyles', code);
         safeFunction(sandbox.updateStyles);
@@ -102,9 +141,11 @@ const ScratchClone = () => {
 
   return (
       <div  style={{marginTop:"100px",}} >
-           <h1>set the background color to gold and fontcolor to black</h1>
- 
-    <div className="scratch-clone" style={{ backgroundColor:"black",padding: '20px', ...styles }}>
+           <h1>make the text always readable hint:make the font opposite to the background color</h1>
+                <button onClick={()=>{setbgcolor("black")}}> black </button>
+                      <button onClick={()=>{setbgcolor("white")}}> white</button> 
+
+    <div className="scratch-clone" style={{ backgroundColor:bgcolor,padding: '20px', ...styles }}>
       <div id="blocklyDiv" style={{ zIndex:"-1",height: '480px', width: '600px', border: '1px solid #ccc' }}></div>
       <button onClick={generateCode}>Run Code</button>
      <p> Test text </p> 
@@ -114,4 +155,4 @@ const ScratchClone = () => {
   );
 };
 
-export default ScratchClone;
+export default Ifplayground;
