@@ -73,13 +73,13 @@ return [`'${bgcolor}'`, BlocklyJS['javascriptGenerator'].ORDER_ATOMIC];
     };
  const initialXml = `
 <xml xmlns="https://developers.google.com/blockly/xml">
-  <block type="controls_if" id="(bZ3+[LHn2(0]G9Nef-4" x="263" y="163">
+  <block type="controls_if"  movable="false" id="(bZ3+[LHn2(0]G9Nef-4" x="200" y="163">
     <mutation else="1"></mutation>
     <value name="IF0">
-      <block type="logic_compare" id="6kUX^+c2o^2E.3l(]Cp">
+      <block type="logic_compare" movable="false"  id="6kUX^+c2o^2E.3l(]Cp">
         <field name="OP">EQ</field>
         <value name="A">
-          <block type="get_background_color" id="l,@xkNPMI])aT|Q/x.Kp">
+          <block type="get_background_color" movable="false"  id="l,@xkNPMI])aT|Q/x.Kp">
             <field name="TEXT"></field>
           </block>
         </value>
@@ -141,7 +141,7 @@ Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDoc.documentElement,workspace);
 
   return (
       <div  style={{marginTop:"100px",}} >
-           <h1>make the text always readable hint:make the font opposite to the background color</h1>
+           <h1>make the text always readable  on black or white background. <br/> hint:make the font opposite to the background color</h1>
                 <button onClick={()=>{setbgcolor("black")}}> black </button>
                       <button onClick={()=>{setbgcolor("white")}}> white</button> 
 

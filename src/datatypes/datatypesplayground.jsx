@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const DragAndDropCategories = ({language}) => {
   const [categories, setCategories] = useState({
@@ -67,7 +68,10 @@ setitem([item,...items])
 
   return (
     <div  id="datatypes" style={{ display: "flex",gap:"20px" }}>
-      <h1>Drag and drop</h1>
+      {language!="ar"&&   <h1>   Drag and drop</h1>}
+{language==="ar"&&   <h1>  حرك و ارمي</h1>}
+
+
       <div>
         <p>Items</p>
         <ul>
@@ -122,7 +126,8 @@ setitem([item,...items])
           </ul>
         </div>
       ))}
-      <h3>او جرب بنفسك</h3>
+{language!="ar" &&<h3> try yourself</h3>}
+{language==="ar" &&<h3>او جرب بنفسك</h3>}
       <form  onSubmit={(e)=>{
         e.preventDefault()
         additem()
@@ -130,6 +135,8 @@ setitem([item,...items])
       <input required value={text} onChange={(e)=>{settext(e.target.value)}} ></input>
 
       </form>
+
+    {items.length==0 &&  <Link to="/"> finish</Link>}
     </div>
   );
 };
