@@ -43,7 +43,7 @@ const ComparisonGame2 = ({ language }) => {
     const t = translations[language];
 
     return (
-        <div style={{ fontFamily: "Arial, sans-serif", position: "absolute", left: "50%", transform: "translateX(-50%)", top: "100px", textAlign: "center", marginTop: "50px" }}>
+        <div style={{ fontFamily: "Arial, sans-serif", backgroundColor:"rgba(1,1,1,0.4)",position: "absolute", left: "50%", transform: "translateX(-50%)", top: "100px", textAlign: "center", marginTop: "50px" }}>
             <h1>{t.title}</h1>
             <p>{t.instruction}</p>
             <h2>{t.rule}</h2>

@@ -49,7 +49,8 @@ const ComparisonGame2 = ({language}) => {
             top: "100px",
             textAlign: "center", 
             marginTop: "50px",
-            direction: language === 'ar' ? 'rtl' : 'ltr'
+            direction: language === 'ar' ? 'rtl' : 'ltr',
+            backgroundColor:"rgba(1,1,1,0.4)"
         }}>
             <h1>{t.title}</h1>
             <p>{t.help}</p>

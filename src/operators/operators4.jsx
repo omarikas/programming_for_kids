@@ -41,7 +41,7 @@ const ComparisonGame4 = ({language}) => {
     };
 
     return (
-        <div style={{ fontFamily: "Arial, sans-serif", position:"absolute", left:"50%", transform:"translateX(-50%)", top:"100px", textAlign: "center", marginTop: "50px" }}>
+        <div style={{ fontFamily: "Arial, sans-serif", position:"absolute", backgroundColor:"rgba(1,1,1,0.4)",left:"50%", transform:"translateX(-50%)", top:"100px", textAlign: "center", marginTop: "50px" }}>
             <h1>{t.title}</h1>
             <p>{t.help}</p>
             <h2>{t.eggs} == {t.milk} || {t.milk} ==0</h2>

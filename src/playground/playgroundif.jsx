@@ -141,7 +141,7 @@ Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDoc.documentElement,workspace);
 
   return (
       <div  style={{marginTop:"100px",position:"relative"}} >
-           <h1>make the text always readable  on black or white background. <br/> hint:make the font opposite to the background color</h1>
+           <h1 style={{color:"white"}} >make the text always readable  on black or white background. <br/> hint:make the font opposite to the background color</h1>
              
              <div style={{position:"absolute",left:"50%"}}>
 
@@ -153,7 +153,7 @@ Blockly.Xml.clearWorkspaceAndLoadFromXml(xmlDoc.documentElement,workspace);
              
 
     <div className="scratch-clone" style={{ backgroundColor:bgcolor,padding: '20px', ...styles }}>
-      <div id="blocklyDiv" style={{ zIndex:"-1",height: '480px', width: '100vw', border: '1px solid #ccc' }}></div>
+      <div id="blocklyDiv" style={{ zIndex:"-1",height: '480px', width: '600px', border: '1px solid #ccc' }}></div>
       <button onClick={generateCode}>Run Code</button>
      <p> Test text </p> 
     </div>

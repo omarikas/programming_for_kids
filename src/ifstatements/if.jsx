@@ -1,26 +1,32 @@
-
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-const CircleGrid = ({language}) => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  
+const If = ({language}) => {
+  const [position, setPosition] = useState({ x: 3, y: 4 });
+  const [Finish,setfinish]=useState(false)
   const translations = {
-    functionDescription: {
-      en: "A function is something that takes information and\n performs a task:",
-      ar: "الداله هي شي ياخد معلومات و يقوم بتنفيذ مهمه مثال:"
+    en: {
+      title: "Interactive Grid Movement",
+      example: `if(redpostion==blueposition){
+      succes();
+      
+    }`,
+      red: "red",
+      blue: "blue"
     },
-    next: {
-      en: "Next",
-      ar: "التالي"
-    },
-    move: {
-      en: "Move",
-      ar: "تحريك"
+    ar: {
+      title: "حركة الشبكة التفاعلية",
+      example: `if(redpostion==blueposition){
+      succes();
+      
+    }`,
+      red: "أحمر",
+      blue: "أزرق"
     }
   };
+
   // Get current language texts
+  const t = translations[language] || translations.en;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -33,18 +39,55 @@ const CircleGrid = ({language}) => {
   const handleGridClick = (x, y) => {
     setPosition({ x, y });
   };
+  function getTranslationValues(element) {
+    const style = window.getComputedStyle(element);
+    const matrix = new WebKitCSSMatrix(style.transform);
+
+    // Extract translateX and translateY from the matrix
+    return {
+        x: matrix.m41,
+        y: matrix.m42,
+    };
+}
+
+function haveSameTranslation(element1, element2) {
+    const translation1 = getTranslationValues(element1);
+    const translation2 = getTranslationValues(element2);
+
+    return translation1.x === translation2.x && translation1.y === translation2.y;
+}
+
+
+
+
+
 
   const move = () => {
+    const selectedElement = document.getElementById(
+      document.getElementById("select").value
+    );
+    if (selectedElement) {
+      selectedElement.style.transform = `translate(${(position.x )* 40}px, ${(position.y )* 40}px)`;
+    }
+       
     
-      document.getElementById("red").style.transform = `translate(${(position.x )* 40}px, ${(position.y )* 40}px)`;
+    setTimeout(() => {
+        let red=document.getElementById("red")
+        let blue =document.getElementById("blue")
+        setfinish(haveSameTranslation(red,blue))
+
+
+
+    }, 1000);
     
+
   };
 
   return (
     <div style={{ position:"absolute",backgroundColor:"rgba(1,1,1,0.4)",transform:"translateX(-50%)",left:"50%",top:"100px",fontFamily: "Arial, sans-serif" }}>
-     
+      <h2>{t.title}</h2>
       <div style={{ marginBottom: "15px", fontSize: "16px" }}>
-    {translations.functionDescription[language]}
+    {t.example}
       </div>
       <div
         style={{
@@ -81,7 +124,21 @@ const CircleGrid = ({language}) => {
           }}
         />
         ,
-       
+        <select
+          id="select"
+          style={{
+            padding: "5px",
+            border: "1px solid #ccc",
+            borderRadius: "4px",
+          }}
+        >
+          <option key="red" value="red">
+         {t.red}
+          </option>
+          <option key="blue" value="blue">
+          {t.blue}
+          </option>
+        </select>
         <span>)</span>
         <button
           onClick={move}
@@ -127,7 +184,17 @@ const CircleGrid = ({language}) => {
             ></div>
           ))
         )}
-      
+        <div
+          id="blue"
+          style={{
+            position: "absolute",
+            width: "40px",
+            height: "40px",
+            backgroundColor: "blue",
+            borderRadius: "50%",
+            transition: "transform 0.3s ease",
+          }}
+        ></div>
         <div
           id="red"
           style={{
@@ -137,12 +204,19 @@ const CircleGrid = ({language}) => {
             backgroundColor: "red",
             borderRadius: "50%",
             transition: "transform 0.3s ease",
+            transform:`translate(${3* 40}px, ${4* 40}px)`
           }}
         ></div>
       </div>
-      <Link to={"/functions2"}>Next</Link>
-    </div>
+
+
+  {Finish&& <button> <Link to="/if2"> next </Link></button> }
+  
+  
+  
+  
+  </div>
   );
 };
 
-export default CircleGrid;
+export default If;

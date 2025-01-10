@@ -12,6 +12,8 @@ import ComparisonGame3 from './operators/operators3.jsx';
 import ComparisonGame4 from './operators/operators4.jsx';
 import ScratchClone from './playground/playgorund.jsx';
 import Ifplayground from "./playground/playgroundif.jsx"
+import If from './ifstatements/if.jsx';
+import If2 from './ifstatements/if2.jsx';
 const translations = {
   en: {
     home: 'Home',
@@ -49,6 +51,10 @@ const App = () => {
         <Route path='/functions' element={<CircleGrid language={language} />} />
         <Route path='/Ifplayground' element={< Ifplayground language={language}/>} />
  
+        <Route path='/if' element={< If language={language}/>} />
+
+        <Route path='/if2' element={< If2 language={language}/>} />
+        <Route path='/Ifplayground' element={< Ifplayground language={language}/>} />
         <Route path='/operators2' element={<ComparisonGame2  language={language}/>} />
         <Route path='/operators3' element={<ComparisonGame3  language={language}/>} />
         <Route path='/operators4' element={<ComparisonGame4  language={language}/>} />

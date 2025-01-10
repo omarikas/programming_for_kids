@@ -102,14 +102,21 @@ const ScratchClone = () => {
 
   return (
       <div  style={{marginTop:"100px",}} >
-           <h1>set the background color to gold and fontcolor to black</h1>
+           <h1 style={{color:"white"}} >set the background color to gold and fontcolor to black</h1>
  
     <div className="scratch-clone" style={{ backgroundColor:"black",padding: '20px', ...styles }}>
       <div id="blocklyDiv" style={{ zIndex:"-1",height: '480px', width: '80vw', border: '1px solid #ccc' }}></div>
       <button onClick={generateCode}>Run Code</button>
      <p>  text that should be black</p> 
     </div>
-      {styles.backgroundColor==="gold"&&styles.color==="black"&&<Link to="/">Finish</Link>}
+      {styles.backgroundColor==="gold"&&styles.color==="black"&&
+      
+      <button>
+
+
+
+        <Link to="/">Finish</Link>
+      </button>}
       </div>
   );
 };

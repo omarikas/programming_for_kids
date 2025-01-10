@@ -17,13 +17,15 @@ const Home = ({language}) => {
             dataTypes: "Data Types",
             variables: "Variables",
             functions: "Functions",
-            operators:"operators"
+            operators:"operators",
+            if:"if"
         },
         ar: {
             dataTypes: "أنواع البيانات",
             variables: "المتغيرات",
             functions: "الدوال",
-            operators:"المقارانات"
+            operators:"المقارانات",
+            if:"لو"
         }
     };
 
@@ -35,7 +37,7 @@ const Home = ({language}) => {
         flexWrap: 'wrap',
         justifyContent: 'center',
         alignItems: 'center',
-        height: '100vh'
+    
     };
     return (
     <div style={containerStyle} >
@@ -70,6 +72,14 @@ const Home = ({language}) => {
                     className="card-image"
                 />
                 <span>{text.functions}</span>
+            </div>
+            <div className="card" onClick={() => navigateToFunctions("if")}>
+                <img 
+                    src="/images/if.png" 
+                    alt="Functions" 
+                    className="card-image"
+                />
+                <span>{text.if}</span>
             </div>
         </div>
     );
