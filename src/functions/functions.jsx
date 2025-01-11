@@ -41,7 +41,7 @@ const CircleGrid = ({language}) => {
   };
 
   return (
-    <div style={{ position:"absolute",backgroundColor:"rgba(1,1,1,0.4)",transform:"translateX(-50%)",left:"50%",top:"100px",fontFamily: "Arial, sans-serif" }}>
+    <div style={{ position:"absolute",backgroundColor:"rgba(241, 241, 241, 0.4)",transform:"translateX(-50%)",left:"50%",top:"100px",fontFamily: "Arial, sans-serif" }}>
      
       <div style={{ marginBottom: "15px", fontSize: "16px" }}>
     {translations.functionDescription[language]}
@@ -140,7 +140,17 @@ const CircleGrid = ({language}) => {
           }}
         ></div>
       </div>
-      <Link to={"/functions2"}>Next</Link>
+
+
+      <Link to={"/functions2"}>
+      <button>
+      
+      
+      Next
+      
+      
+      </button>
+      </Link>
     </div>
   );
 };

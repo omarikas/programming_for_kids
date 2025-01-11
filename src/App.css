@@ -37,7 +37,7 @@ input{
   transform: translate(-50%, -100%);
 }
 h3{
-
+color: azure;
   position: absolute;
   bottom: 15%;
   left: 50%;

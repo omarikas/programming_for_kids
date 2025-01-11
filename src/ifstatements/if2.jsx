@@ -85,7 +85,7 @@ function haveSameTranslation(element1, element2) {
   };
 
   return (
-    <div style={{ position:"absolute",backgroundColor:"rgba(1,1,1,0.4)",transform:"translateX(-50%)",left:"50%",top:"100px",fontFamily: "Arial, sans-serif" }}>
+    <div style={{ position:"absolute",backgroundColor:"rgba(242, 242, 242, 0.4)",transform:"translateX(-50%)",left:"50%",top:"100px",fontFamily: "Arial, sans-serif" }}>
       <h2>{t.title}</h2>
       <div style={{ marginBottom: "15px", fontSize: "16px" }}>
     {t.example}

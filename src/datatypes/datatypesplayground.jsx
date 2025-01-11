@@ -112,7 +112,7 @@ setitem([item,...items])
             border: "1px solid #ccc",
             borderRadius: "4px",
             minHeight: "150px",
-            backgroundColor: "#black",
+            backgroundColor: "white",
             width:"15vw"
           }}
         >
